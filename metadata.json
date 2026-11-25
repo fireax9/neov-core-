@@ -1,0 +1,6 @@
+{
+  "name": "Neov Core",
+  "description": "أداة احترافية وخفيفة لفحص ومراقبة عتاد ونظام الهاتف الذكي في الوقت الفعلي دون اتصال بالإنترنت وبخصوصية تامة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

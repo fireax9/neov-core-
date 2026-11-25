@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Neov Core</string>
+    <string name="app_tagline">مراقبة العتاد والنظام في الوقت الفعلي</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_soc">المعالج</string>
+    <string name="nav_system">النظام</string>
+    <string name="nav_memory">الذاكرة</string>
+    <string name="nav_battery">البطارية</string>
+    <string name="nav_sensors">المستشعرات</string>
+
+    <!-- Top Bar & Controls -->
+    <string name="status_live">بث مباشر</string>
+    <string name="status_paused">متوقف</string>
+    <string name="action_toggle_live">تبديل البث المباشر</string>
+    <string name="action_toggle_theme">تبديل المظهر</string>
+    <string name="action_privacy_info">معلومات الخصوصية</string>
+    <string name="badge_offline_secure">يعمل دون إنترنت</string>
+
+    <!-- Privacy & About Sheet -->
+    <string name="privacy_sheet_title">Neov Core • الخصوصية والأمان</string>
+    <string name="privacy_sheet_subtitle">أداة فحص عتاد احترافية ومستقلة بالكامل</string>
+    <string name="privacy_point_offline_title">تشغيل مستقل بدون إنترنت</string>
+    <string name="privacy_point_offline_desc">لا يطلب التطبيق إذن الاتصال بالشبكة (INTERNET) إطلاقاً، وتبقى جميع القراءات داخل جهازك فقط.</string>
+    <string name="privacy_point_zero_data_title">صفر بيانات شخصية</string>
+    <string name="privacy_point_zero_data_desc">لا يتم جمع أو تخزين أو مشاركة أي بيانات استخدام أو معرّفات شخصية أو إعلانات.</string>
+    <string name="privacy_point_direct_api_title">قراءة مباشرة من عتاد أندرويد</string>
+    <string name="privacy_point_direct_api_desc">يعتمد على واجهات النظام الرسمية ومستشعرات الجهاز لتقديم قراءات حية ودقيقة.</string>
+    <string name="action_close">إغلاق</string>
+
+    <!-- SoC / CPU Module -->
+    <string name="soc_header_title">وحدة المعالج (SoC)</string>
+    <string name="soc_model_label">المعالج / الشريحة</string>
+    <string name="soc_manufacturer_label">الشركة المصنّعة</string>
+    <string name="soc_arch_label">المعمارية</string>
+    <string name="soc_abis_label">مجموعات التعليمات (ABIs)</string>
+    <string name="soc_cores_label">عدد الأنوية</string>
+    <string name="soc_governor_label">متحكم التردد (Governor)</string>
+    <string name="soc_clusters_title">توزيع الأنوية والتردد الحي</string>
+    <string name="soc_live_waveform_title">مؤشر التردد الحي للمعالج</string>
+    <string name="soc_avg_clock">متوسط التردد</string>
+    <string name="soc_peak_clock">أعلى تردد</string>
+    <string name="soc_cpu_load">حمل المعالج الحي</string>
+    <string name="soc_load_avg">متوسط الحمل (1m / 5m / 15m)</string>
+    <string name="soc_live_load_waveform_title">مؤشر الحمل الحي للمعالج (%)</string>
+    <string name="soc_core_label">نواة %1$d</string>
+    <string name="soc_core_online">نشطة</string>
+    <string name="soc_core_offline">خاملة</string>
+    <string name="soc_features_label">الخصائص المدعومة</string>
+    <string name="soc_bogomips_label">BogoMIPS</string>
+    <string name="soc_arch_64">64-bit</string>
+    <string name="soc_arch_32">32-bit</string>
+    <string name="soc_sysfs_restricted">محمي بسياسة النظام</string>
+
+    <!-- System Module -->
+    <string name="system_header_title">معلومات النظام والشاشة</string>
+    <string name="system_device_section">هوية الجهاز</string>
+    <string name="system_brand_label">العلامة التجارية</string>
+    <string name="system_model_label">الطراز</string>
+    <string name="system_manufacturer_label">المصنّع</string>
+    <string name="system_device_code_label">الاسم الرمزي للجهاز</string>
+    <string name="system_board_label">اللوحة (Board)</string>
+    <string name="system_os_section">بيئة أندرويد والنواة</string>
+    <string name="system_android_ver_label">إصدار أندرويد</string>
+    <string name="system_api_level_label">مستوى API</string>
+    <string name="system_security_patch_label">التحديث الأمني</string>
+    <string name="system_build_id_label">رقم البناء</string>
+    <string name="system_kernel_label">إصدار النواة (Kernel)</string>
+    <string name="system_vm_label">بيئة التشغيل (ART/VM)</string>
+    <string name="system_uptime_label">مدة التشغيل المتواصل</string>
+    <string name="system_display_section">خصائص الشاشة</string>
+    <string name="system_resolution_label">الدقة (بكسل)</string>
+    <string name="system_density_label">الكثافة النقطية</string>
+    <string name="system_screen_size_label">القياس التقريبي</string>
+    <string name="system_refresh_rate_label">معدل التحديث</string>
+    <string name="system_hdr_label">دعم HDR</string>
+    <string name="system_wide_color_label">نطاق ألوان واسع</string>
+    <string name="value_supported">مدعوم</string>
+    <string name="value_not_supported">غير مدعوم</string>
+
+    <!-- Memory Module -->
+    <string name="memory_header_title">الذاكرة والتخزين</string>
+    <string name="memory_ram_section">الذاكرة العشوائية (RAM)</string>
+    <string name="memory_ram_used">المستخدمة</string>
+    <string name="memory_ram_available">المتاحة</string>
+    <string name="memory_ram_total">الإجمالي</string>
+    <string name="memory_ram_threshold">حد الذاكرة المنخفضة</string>
+    <string name="memory_ram_status_normal">مستقرة</string>
+    <string name="memory_ram_status_low">ذاكرة منخفضة</string>
+    <string name="memory_ram_history_title">مخطط استهلاك RAM الحي</string>
+    <string name="memory_swap_label">ذاكرة المبادلة (Swap)</string>
+    <string name="memory_cached_label">الذاكرة المخبّأة (Cached)</string>
+    <string name="memory_storage_section">التخزين الداخلي</string>
+    <string name="memory_storage_data_title">قسم بيانات المستخدم (/data)</string>
+    <string name="memory_storage_system_title">قسم النظام (/system)</string>
+    <string name="memory_storage_used">مستخدم</string>
+    <string name="memory_storage_free">متاح</string>
+    <string name="memory_storage_total">السعة الكلية</string>
+
+    <!-- Battery Module -->
+    <string name="battery_header_title">وحدة البطارية والطاقة</string>
+    <string name="battery_level_label">نسبة الشحن</string>
+    <string name="battery_status_label">حالة الشحن</string>
+    <string name="battery_source_label">مصدر الطاقة</string>
+    <string name="battery_temp_label">درجة الحرارة</string>
+    <string name="battery_voltage_label">الفولتية</string>
+    <string name="battery_health_label">الحالة الصحية</string>
+    <string name="battery_tech_label">التقنية</string>
+    <string name="battery_current_label">التيار اللحظي</string>
+    <string name="battery_power_label">القدرة التقديرية</string>
+    <string name="battery_charge_counter_label">الشحنة المقاسة</string>
+    <string name="battery_temp_history_title">منحنى الحرارة والفولتية</string>
+    <string name="battery_status_charging">جاري الشحن</string>
+    <string name="battery_status_discharging">تفريغ</string>
+    <string name="battery_status_full">ممتلئة</string>
+    <string name="battery_status_not_charging">غير متصل بالشحن</string>
+    <string name="battery_status_unknown">غير معروف</string>
+    <string name="battery_source_ac">شاحن جداري (AC)</string>
+    <string name="battery_source_usb">منفذ USB</string>
+    <string name="battery_source_wireless">شحن لاسلكي</string>
+    <string name="battery_source_battery">البطارية</string>
+    <string name="battery_health_good">جيدة</string>
+    <string name="battery_health_overheat">سخونة زائدة</string>
+    <string name="battery_health_dead">تالفة</string>
+    <string name="battery_health_over_voltage">فولتية زائدة</string>
+    <string name="battery_health_cold">منخفضة الحرارة</string>
+    <string name="battery_health_failure">عطل غير محدد</string>
+    <string name="battery_health_unknown">غير معروفة</string>
+    <string name="battery_thermal_cool">باردة</string>
+    <string name="battery_thermal_normal">طبيعية</string>
+    <string name="battery_thermal_warm">دافئة</string>
+    <string name="battery_thermal_hot">مرتفعة</string>
+
+    <!-- Sensors Module -->
+    <string name="sensors_header_title">المستشعرات والقراءات المباشرة</string>
+    <string name="sensors_total_count">إجمالي الحساسات: %1$d</string>
+    <string name="sensors_active_count">البث النشط: %1$d</string>
+    <string name="sensors_search_hint">ابحث عن مستشعر أو شركة مصنّعة…</string>
+    <string name="sensors_filter_all">الكل</string>
+    <string name="sensors_filter_motion">الحركة</string>
+    <string name="sensors_filter_environment">البيئة</string>
+    <string name="sensors_filter_position">الموضع</string>
+    <string name="sensors_filter_other">أخرى</string>
+    <string name="sensors_vendor_label">المصنّع</string>
+    <string name="sensors_power_label">الاستهلاك</string>
+    <string name="sensors_range_label">المدى الأقصى</string>
+    <string name="sensors_resolution_label">الدقة</string>
+    <string name="sensors_delay_label">أقل تأخير</string>
+    <string name="sensors_mode_label">النمط</string>
+    <string name="sensors_live_values">القراءة المباشرة</string>
+    <string name="sensors_waiting_event">بانتظار تغيّر القراءة…</string>
+    <string name="sensors_stream_action">مراقبة</string>
+    <string name="sensors_streaming_active">قيد البث</string>
+    <string name="sensors_empty_title">لا توجد مستشعرات مطابقة</string>
+    <string name="sensors_empty_desc">جرّب تغيير كلمة البحث أو اختيار تصنيف آخر.</string>
+
+    <!-- Common -->
+    <string name="value_unavailable">غير متاح</string>
+    <string name="unit_inches">بوصة</string>
+    <string name="unit_ma">mA</string>
+    <string name="unit_mv">mV</string>
+    <string name="unit_ghz">GHz</string>
+    <string name="unit_mhz">MHz</string>
+    <string name="unit_hz">Hz</string>
+    <string name="unit_celsius">°C</string>
+</resources>
