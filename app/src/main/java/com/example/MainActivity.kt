@@ -5,7 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -26,6 +28,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.filled.BatteryChargingFull
 import androidx.compose.material.icons.filled.Dns
 import androidx.compose.material.icons.filled.Memory
@@ -34,6 +37,7 @@ import androidx.compose.material.icons.filled.Sensors
 import androidx.compose.material.icons.outlined.BatteryChargingFull
 import androidx.compose.material.icons.outlined.DarkMode
 import androidx.compose.material.icons.outlined.Dns
+import androidx.compose.material.icons.outlined.FactCheck
 import androidx.compose.material.icons.outlined.LightMode
 import androidx.compose.material.icons.outlined.Memory
 import androidx.compose.material.icons.outlined.Pause
@@ -64,8 +68,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -84,6 +90,7 @@ import com.example.ui.NeovCoreViewModel
 import com.example.ui.components.LtrTelemetryText
 import com.example.ui.components.PrivacyBottomSheet
 import com.example.ui.screens.BatteryScreen
+import com.example.ui.screens.DiagnosticsScreen
 import com.example.ui.screens.MemoryScreen
 import com.example.ui.screens.SensorsScreen
 import com.example.ui.screens.SocScreen
@@ -170,6 +177,8 @@ fun NeovCoreApp(
     val currentDestination = navBackStackEntry?.destination
     val telemetryColors = LocalTelemetryColors.current
 
+    val isDiagnosticsRoute = currentDestination?.route == "diagnostics"
+
     fun navigateToModule(module: NeovModule) {
         viewModel.selectModule(module)
         navController.navigate(module.route) {
@@ -198,22 +207,34 @@ fun NeovCoreApp(
                         containerColor = MaterialTheme.colorScheme.surface,
                         titleContentColor = MaterialTheme.colorScheme.onSurface
                     ),
-                    title = {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Box(
-                                modifier = Modifier
-                                    .size(34.dp)
-                                    .clip(RoundedCornerShape(10.dp))
-                                    .background(MaterialTheme.colorScheme.primaryContainer),
-                                contentAlignment = Alignment.Center
+                    navigationIcon = {
+                        if (isDiagnosticsRoute) {
+                            IconButton(
+                                onClick = { navController.popBackStack() },
+                                modifier = Modifier.testTag("diag_back_button")
                             ) {
                                 Icon(
-                                    imageVector = Icons.Filled.Memory,
-                                    contentDescription = stringResource(R.string.app_name),
-                                    tint = MaterialTheme.colorScheme.primary,
-                                    modifier = Modifier.size(20.dp)
+                                    imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
+                                    contentDescription = stringResource(R.string.action_close)
                                 )
                             }
+                        }
+                    },
+                    title = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Image(
+                                painter = painterResource(id = R.drawable.neov_core_white_red_logo_1795639367962),
+                                contentDescription = stringResource(R.string.app_name),
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier
+                                    .size(38.dp)
+                                    .clip(RoundedCornerShape(10.dp))
+                                    .border(
+                                        width = 1.5.dp,
+                                        color = MaterialTheme.colorScheme.primary,
+                                        shape = RoundedCornerShape(10.dp)
+                                    )
+                            )
                             Spacer(modifier = Modifier.width(10.dp))
                             Column {
                                 LtrTelemetryText(
@@ -224,7 +245,11 @@ fun NeovCoreApp(
                                     color = MaterialTheme.colorScheme.onSurface
                                 )
                                 Text(
-                                    text = stringResource(R.string.badge_offline_secure),
+                                    text = if (isDiagnosticsRoute) {
+                                        stringResource(R.string.diag_title)
+                                    } else {
+                                        stringResource(R.string.badge_offline_secure)
+                                    },
                                     style = MaterialTheme.typography.labelSmall,
                                     color = telemetryColors.optimal,
                                     maxLines = 1,
@@ -274,6 +299,27 @@ fun NeovCoreApp(
                                     color = liveColor
                                 )
                             }
+                        }
+
+                        IconButton(
+                            onClick = {
+                                if (!isDiagnosticsRoute) {
+                                    navController.navigate("diagnostics") {
+                                        launchSingleTop = true
+                                    }
+                                }
+                            },
+                            modifier = Modifier.testTag("diagnostics_button")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Outlined.FactCheck,
+                                contentDescription = stringResource(R.string.diag_button_desc),
+                                tint = if (isDiagnosticsRoute) {
+                                    MaterialTheme.colorScheme.primary
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                }
+                            )
                         }
 
                         IconButton(
@@ -439,6 +485,16 @@ fun NeovCoreApp(
                                 onCategorySelect = viewModel::selectSensorCategory,
                                 onToggleExpand = viewModel::toggleSensorExpand,
                                 onToggleMonitor = viewModel::toggleSensorMonitor
+                            )
+                        }
+                        composable("diagnostics") {
+                            DiagnosticsScreen(
+                                cpuInfo = uiState.cpuInfo,
+                                systemInfo = uiState.systemInfo,
+                                memoryInfo = uiState.memoryInfo,
+                                batteryInfo = uiState.batteryInfo,
+                                sensors = uiState.sensors,
+                                liveReadings = liveSensorReadings
                             )
                         }
                     }

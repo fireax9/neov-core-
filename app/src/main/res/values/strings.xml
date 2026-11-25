@@ -155,6 +155,24 @@
     <string name="sensors_empty_title">لا توجد مستشعرات مطابقة</string>
     <string name="sensors_empty_desc">جرّب تغيير كلمة البحث أو اختيار تصنيف آخر.</string>
 
+    <!-- Hardware Diagnostics (15 Tests) -->
+    <string name="diag_title">فحص الهاتف (15 اختبار)</string>
+    <string name="diag_button_desc">اختبارات الهاتف</string>
+    <string name="diag_run_auto">تشغيل الفحص التلقائي</string>
+    <string name="diag_reset_all">إعادة ضبط</string>
+    <string name="diag_summary_passed">اجتاز: %1$d / 15</string>
+    <string name="diag_status_pending">بانتظار الفحص</string>
+    <string name="diag_status_passed">ناجح</string>
+    <string name="diag_status_warning">تحذير</string>
+    <string name="diag_status_unsupported">غير مدعوم بالعتاد</string>
+    <string name="diag_action_test">اختبار</string>
+    <string name="diag_action_confirm_pass">سليم ✓</string>
+    <string name="diag_action_mark_issue">مشكلة ✗</string>
+    <string name="diag_pixel_hint">المس الشاشة للتبديل بين الألوان وفحص سلامة البكسلات</string>
+    <string name="diag_touch_hint">المس المنطقة بعدة أصابع معاً لاختبار اللمس المتعدد</string>
+    <string name="diag_touch_points">نقاط اللمس المسجلة: %1$d</string>
+    <string name="diag_haptic_trigger">تفعيل نبضة الاهتزاز</string>
+
     <!-- Common -->
     <string name="value_unavailable">غير متاح</string>
     <string name="unit_inches">بوصة</string>

@@ -26,33 +26,33 @@ data class TelemetryColors(
 
 val LocalTelemetryColors = staticCompositionLocalOf {
     TelemetryColors(
-        cool = CyanElectric,
-        optimal = EmeraldTelemetry,
+        cool = TextPrimaryDark,
+        optimal = ScarletSecondary,
         warm = AmberThermal,
-        critical = CoralAlert,
-        accentCyan = CyanElectric,
+        critical = CrimsonAlert,
+        accentCyan = CrimsonPrimary,
         gridLine = ObsidianOutlineVariant,
         cardBorder = ObsidianOutline
     )
 }
 
 private val NeovDarkColorScheme = darkColorScheme(
-    primary = CyanElectric,
-    onPrimary = Color(0xFF00242B),
-    primaryContainer = CyanContainerDark,
-    onPrimaryContainer = CyanOnContainerDark,
-    secondary = EmeraldTelemetry,
-    onSecondary = Color(0xFF00291D),
-    secondaryContainer = EmeraldContainerDark,
-    onSecondaryContainer = EmeraldOnContainerDark,
+    primary = CrimsonPrimary,
+    onPrimary = Color.White,
+    primaryContainer = CrimsonContainerDark,
+    onPrimaryContainer = CrimsonOnContainerDark,
+    secondary = ScarletSecondary,
+    onSecondary = Color(0xFF2B0006),
+    secondaryContainer = ScarletContainerDark,
+    onSecondaryContainer = ScarletOnContainerDark,
     tertiary = AmberThermal,
     onTertiary = Color(0xFF2B1600),
     tertiaryContainer = AmberContainerDark,
     onTertiaryContainer = AmberOnContainerDark,
-    error = CoralAlert,
-    onError = Color(0xFF2B0000),
-    errorContainer = CoralContainerDark,
-    onErrorContainer = CoralOnContainerDark,
+    error = CrimsonAlert,
+    onError = Color.White,
+    errorContainer = CrimsonAlertContainerDark,
+    onErrorContainer = CrimsonAlertOnContainerDark,
     background = ObsidianBg,
     onBackground = TextPrimaryDark,
     surface = ObsidianSurface,
@@ -69,14 +69,14 @@ private val NeovDarkColorScheme = darkColorScheme(
 )
 
 private val NeovLightColorScheme = lightColorScheme(
-    primary = TealPrecision,
+    primary = CrimsonPrecision,
     onPrimary = Color.White,
-    primaryContainer = TealContainerLight,
-    onPrimaryContainer = TealOnContainerLight,
-    secondary = EmeraldPrecision,
+    primaryContainer = CrimsonContainerLight,
+    onPrimaryContainer = CrimsonOnContainerLight,
+    secondary = JetBlackSecondary,
     onSecondary = Color.White,
-    secondaryContainer = EmeraldContainerLight,
-    onSecondaryContainer = EmeraldOnContainerLight,
+    secondaryContainer = JetBlackContainerLight,
+    onSecondaryContainer = JetBlackOnContainerLight,
     tertiary = AmberPrecision,
     onTertiary = Color.White,
     tertiaryContainer = AmberContainerLight,
@@ -116,21 +116,21 @@ fun NeovCoreTheme(
     val colorScheme = if (darkTheme) NeovDarkColorScheme else NeovLightColorScheme
     val telemetryColors = if (darkTheme) {
         TelemetryColors(
-            cool = CyanElectric,
-            optimal = EmeraldTelemetry,
+            cool = Color(0xFFE4E4E7),
+            optimal = ScarletSecondary,
             warm = AmberThermal,
-            critical = CoralAlert,
-            accentCyan = CyanElectric,
+            critical = CrimsonAlert,
+            accentCyan = CrimsonPrimary,
             gridLine = ObsidianOutlineVariant,
             cardBorder = ObsidianOutline
         )
     } else {
         TelemetryColors(
-            cool = TealPrecision,
-            optimal = EmeraldPrecision,
+            cool = JetBlackSecondary,
+            optimal = CrimsonPrecision,
             warm = AmberPrecision,
             critical = CoralPrecision,
-            accentCyan = TealPrecision,
+            accentCyan = CrimsonPrecision,
             gridLine = AlabasterOutlineVariant,
             cardBorder = AlabasterOutline
         )

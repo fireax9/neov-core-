@@ -3,6 +3,6 @@
     <item
         android:width="66dp"
         android:height="66dp"
-        android:drawable="@drawable/neov_core_icon_1795637355499"
+        android:drawable="@drawable/neov_core_white_red_logo_1795639367962"
         android:gravity="center" />
 </layer-list>
